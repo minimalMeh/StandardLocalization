@@ -5,8 +5,6 @@ VisualStudioVersion = 16.0.30320.27
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FastNotes", "FastNotes\FastNotes.csproj", "{F4B81A72-FD2B-4042-A40D-FAFB7ECC2D3E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FastNotes.Entities", "FastNotes.Entities\FastNotes.Entities.csproj", "{FD922B3D-8024-411A-9CBA-9D761FCC0DF7}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FastNotes.Resources", "FastNotes.Resources\FastNotes.Resources.csproj", "{0074A675-EBC6-49A2-B06E-29495E489924}"
 EndProject
 Global
