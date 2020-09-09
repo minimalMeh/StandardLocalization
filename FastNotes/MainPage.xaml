@@ -1,0 +1,22 @@
+﻿<Page
+    x:Class="FastNotes.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:FastNotes"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Button Content="Eng" Margin="114,48,0,0" VerticalAlignment="Top"/>
+        <Button Content="Rus" Margin="185,48,0,0" VerticalAlignment="Top"/>
+        <Button Content="Ukr" Margin="255,48,0,0" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="114,111,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="163" Width="183">
+            <TextBlock.Text>
+                Hi, my name is Daria. And I have an idea.
+                I want to create a lot of sample projects where I can show some usual programming things.
+            </TextBlock.Text>
+        </TextBlock>
+    </Grid>
+</Page>
