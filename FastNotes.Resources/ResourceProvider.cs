@@ -29,7 +29,6 @@ namespace FastNotes.Resources
 			}
 		}
 
-		[global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
 		public static CultureInfo Culture
 		{
 			get
