@@ -1,5 +1,4 @@
 ﻿using FastNotes.Resources;
-using FastNotes.Resources.Interface;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -24,20 +23,32 @@ namespace FastNotes
     /// </summary>
     public sealed partial class MainPage : Page
     {
+
         public MainPage()
         {
-
-            string wtf = InterfaceResources.Test;
-
-            string culture = InterfaceResources.Culture.Name;
-
-
             this.InitializeComponent();
+            this.EngLanguageButton.Click += LanguageChangedHandler;
+            this.RusLanguageButton.Click += LanguageChangedHandler;
+            this.UkrLanguageButton.Click += LanguageChangedHandler;
         }
 
-        public string UkrLabel { get; set; }
-        public string RusLabel { get; set; }
-        public string EngLabel { get; set; }
+        private void LanguageChangedHandler(object sender, RoutedEventArgs e)
+        {
+            if (e.OriginalSource.Equals(this.EngLanguageButton))
+            {
+                this.SettingsViewModel.HandleLanguageChangeEvent("en-US");
+            }
+            else if (e.OriginalSource.Equals(this.RusLanguageButton))
+            {
+                this.SettingsViewModel.HandleLanguageChangeEvent("ru-RU");
+            }
+            else if (e.OriginalSource.Equals(this.UkrLanguageButton))
+            {
+                this.SettingsViewModel.HandleLanguageChangeEvent("uk-UA");
+            }
+        }
 
+        public SettingsViewModel SettingsViewModel { get; set; } = new SettingsViewModel();
+    
     }
 }

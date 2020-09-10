@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FastNotes.Resources;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -8,8 +9,15 @@ using System.Threading.Tasks;
 
 namespace FastNotes
 {
-    class SettingsViewModel : INotifyPropertyChanged
+    public class SettingsViewModel : INotifyPropertyChanged
     {
+        public SettingsViewModel()
+        {
+            this.engLanguageLabel = InterfaceResources.Label_Language_Eng;
+            this.rusLanguageLabel = InterfaceResources.Label_Language_Rus;
+            this.ukrLanguageLabel = InterfaceResources.Label_Language_Ukr;
+        }
+
         private string engLanguageLabel;
         private string rusLanguageLabel;
         private string ukrLanguageLabel;
@@ -42,6 +50,14 @@ namespace FastNotes
                 this.ukrLanguageLabel = value;
                 OnPropertyChanged();
             }
+        }
+
+        public void HandleLanguageChangeEvent(string language)
+        {
+            InterfaceResources.Culture = new System.Globalization.CultureInfo(language);
+            this.EngLanguageLabel = InterfaceResources.Label_Language_Eng;
+            this.RusLanguageLabel = InterfaceResources.Label_Language_Rus;
+            this.UkrLanguageLabel = InterfaceResources.Label_Language_Ukr;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

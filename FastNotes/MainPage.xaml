@@ -9,14 +9,8 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <Button Content="Eng" Margin="114,48,0,0" VerticalAlignment="Top"/>
-        <Button Content="Rus" Margin="185,48,0,0" VerticalAlignment="Top"/>
-        <Button Content="Ukr" Margin="255,48,0,0" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Margin="114,111,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="163" Width="183">
-            <TextBlock.Text>
-                Hi, my name is Daria. And I have an idea.
-                I want to create a lot of sample projects where I can show some usual programming things.
-            </TextBlock.Text>
-        </TextBlock>
+        <Button Name="EngLanguageButton" Content="{x:Bind SettingsViewModel.EngLanguageLabel, Mode=OneWay}" Margin="114,48,0,0" VerticalAlignment="Top"/>
+        <Button Name="RusLanguageButton" Content="{x:Bind SettingsViewModel.RusLanguageLabel, Mode=OneWay}" Margin="283,48,0,0" VerticalAlignment="Top"/>
+        <Button Name="UkrLanguageButton" Content="{x:Bind SettingsViewModel.UkrLanguageLabel, Mode=OneWay}" Margin="442,48,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Page>
