@@ -1,4 +1,6 @@
-﻿using System;
+﻿using FastNotes.Resources;
+using FastNotes.Resources.Interface;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -24,7 +26,18 @@ namespace FastNotes
     {
         public MainPage()
         {
+
+            string wtf = InterfaceResources.Test;
+
+            string culture = InterfaceResources.Culture.Name;
+
+
             this.InitializeComponent();
         }
+
+        public string UkrLabel { get; set; }
+        public string RusLabel { get; set; }
+        public string EngLabel { get; set; }
+
     }
 }
