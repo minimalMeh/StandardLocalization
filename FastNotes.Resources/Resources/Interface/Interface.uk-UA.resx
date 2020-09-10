@@ -123,13 +123,7 @@
   <data name="Label_Language_Rus" xml:space="preserve">
     <value>Російська</value>
   </data>
-  <data name="Text_Intro" xml:space="preserve">
-    <value>Текст2</value>
-  </data>
   <data name="Label_Language_Ukr" xml:space="preserve">
     <value>Українська</value>
-  </data>
-  <data name="Test" xml:space="preserve">
-    <value>312312</value>
   </data>
 </root>
