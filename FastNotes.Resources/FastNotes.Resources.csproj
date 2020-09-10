@@ -6,13 +6,6 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
   </PropertyGroup>
   <ItemGroup>
-    <None Include="ResourceProvider.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>ResourceProvider.tt</DependentUpon>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Update="ResourceProvider.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>

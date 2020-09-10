@@ -75,5 +75,12 @@ namespace FastNotes.Resources
 				return ResourceManager.GetString("Label_Language_Ukr", Culture);
 			}
 		}
+		public static string Text_Intro
+		{
+			get
+			{
+				return ResourceManager.GetString("Text_Intro", Culture);
+			}
+		}
 	}
 }

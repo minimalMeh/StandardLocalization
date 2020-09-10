@@ -40,7 +40,7 @@ namespace FastNotes.Resources
 
 		private static CultureInfo resourceCulture;
 
-		internal InterfaceResources()
+		internal <#= className #>()
 		{
 		}
 

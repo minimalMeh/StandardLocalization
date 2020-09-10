@@ -101,12 +101,15 @@
     <value>test</value>
   </data>
   <data name="Label_Language_Eng" xml:space="preserve">
-    <value>Ukrainian</value>
+    <value>English</value>
   </data>
   <data name="Label_Language_Rus" xml:space="preserve">
-    <value>Украинский</value>
+    <value>Russian</value>
   </data>
   <data name="Label_Language_Ukr" xml:space="preserve">
-    <value>Українська</value>
+    <value>Ukrainian</value>
+  </data>
+  <data name="Text_Intro" xml:space="preserve">
+    <value>Text1</value>
   </data>
 </root>
