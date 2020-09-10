@@ -1,47 +1,85 @@
-﻿using System;
-using System.Collections.Generic;
+﻿
 using System.Globalization;
-using System.Reflection;
 using System.Resources;
-using System.Runtime.CompilerServices;
+using System.Threading;
 
-namespace FastNotes.Resources
+namespace FastNotes.Resources 
 {
-    /// <summary>
-    /// Allow access to package resources according with current UI culture.
-    /// </summary>
-    public class ResourceProvider
-    {
-        /// <summary>
-        /// Resource file name.
-        /// </summary>
-        private string resourceFileName;
 
-        private ResourceManager resourceManager;
+	public class InterfaceResources
+	{
+		private static ResourceManager resourceManager;
 
-        public ResourceProvider(string resourceFileName)
-        {
-            this.resourceFileName = resourceFileName;
-        }
+		private static CultureInfo resourceCulture;
 
-        private ResourceManager ResourceManager
-        {
-            get
-            {
-                if (this.resourceManager == null)
-                {
-                    this.resourceManager = new ResourceManager(resourceFileName, typeof(ResourceProvider).Assembly);
-                }
+		internal InterfaceResources()
+		{
+		}
 
-                return this.resourceManager;
-            }
-        }
+		internal static ResourceManager ResourceManager
+		{
+			get
+			{
+				if (object.ReferenceEquals(resourceManager, null))
+				{
+					ResourceManager temp = new ResourceManager("FastNotes.Resources.Resources.Interface.Interface", typeof(InterfaceResources).Assembly);
+					resourceManager = temp;
+				}
+				return resourceManager;
+			}
+		}
 
-        public CultureInfo SelectedCulture { get; set; }
+		public static CultureInfo Culture
+		{
+			get
+			{
+				if (resourceCulture == null)
+				{
+					// Later it can be replaced with remembered culture in settings.
+					resourceCulture = Thread.CurrentThread.CurrentCulture;
+				}
+				return resourceCulture;
+			}
+			set
+			{
+				resourceCulture = value;
+			}
+		}
 
-        public string GetString(string key)
-        {
-            return resourceManager.GetString(key);
-        }
-    }
+		public static string Test
+		{
+			get
+			{
+				return ResourceManager.GetString("Test", Culture);
+			}
+		}
+		public static string Label_Language_Eng
+		{
+			get
+			{
+				return ResourceManager.GetString("Label_Language_Eng", Culture);
+			}
+		}
+		public static string Label_Language_Rus
+		{
+			get
+			{
+				return ResourceManager.GetString("Label_Language_Rus", Culture);
+			}
+		}
+		public static string Label_Language_Ukr
+		{
+			get
+			{
+				return ResourceManager.GetString("Label_Language_Ukr", Culture);
+			}
+		}
+		public static string Text_Intro
+		{
+			get
+			{
+				return ResourceManager.GetString("Text_Intro", Culture);
+			}
+		}
+	}
 }

@@ -1,0 +1,95 @@
+﻿<#@ template debug="false" hostspecific="true" language="C#" #>
+<#@ assembly name="System.Core.dll" #>
+<#@ assembly name="System.Xml.dll" #>
+<#@ assembly name="System.Xml.Linq.dll" #>
+<#@ import namespace="System.Xml" #>
+<#@ import namespace="System.Xml.Linq" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.IO" #>
+<#@ import namespace="System" #>
+<#@ output extension=".cs" #>
+
+using System.Globalization;
+using System.Resources;
+using System.Threading;
+
+namespace FastNotes.Resources 
+{
+<#
+	var directoryPath = Path.GetDirectoryName(this.Host.TemplateFile);
+	var directoryName = Path.GetFileNameWithoutExtension(directoryPath);
+	var pathToFoldersWithResources = Path.Combine(directoryPath, "Resources");
+	var folders = Directory.GetDirectories(pathToFoldersWithResources);
+	var foldersCount = folders.Length;
+	
+	foreach (var folder in folders)
+	{
+		var folderName = Path.GetFileNameWithoutExtension(folder);
+		var standardLanguageFilePath = folder + "\\" + folderName + ".en-US.resx";
+		var doc = XDocument.Load(standardLanguageFilePath);
+		var data = doc.Element("root").Elements("data").Select(i => new { Name = i.Attribute("name").Value, Value = i.Element("value").Value }).ToArray();
+
+		var className = folderName + "Resources";
+		var resourceManagerBaseName = "FastNotes.Resources.Resources." + folderName + "." + folderName;
+
+#>
+
+	public class <#= className #>
+	{
+		private static ResourceManager resourceManager;
+
+		private static CultureInfo resourceCulture;
+
+		internal <#= className #>()
+		{
+		}
+
+		internal static ResourceManager ResourceManager
+		{
+			get
+			{
+				if (object.ReferenceEquals(resourceManager, null))
+				{
+					ResourceManager temp = new ResourceManager("<#= resourceManagerBaseName #>", typeof(<#= className #>).Assembly);
+					resourceManager = temp;
+				}
+				return resourceManager;
+			}
+		}
+
+		public static CultureInfo Culture
+		{
+			get
+			{
+				if (resourceCulture == null)
+				{
+					// Later it can be replaced with remembered culture in settings.
+					resourceCulture = Thread.CurrentThread.CurrentCulture;
+				}
+				return resourceCulture;
+			}
+			set
+			{
+				resourceCulture = value;
+			}
+		}
+
+<#
+	foreach(var item in data) 
+	{
+#>
+		public static string <#= item.Name #>
+		{
+			get
+			{
+				return ResourceManager.GetString("<#= item.Name #>", Culture);
+			}
+		}
+<#
+}
+#>
+	}
+<#
+}
+#>
+}
