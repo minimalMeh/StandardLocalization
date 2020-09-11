@@ -13,9 +13,7 @@ namespace FastNotes
     {
         public SettingsViewModel()
         {
-            this.engLanguageLabel = InterfaceResources.Label_Language_Eng;
-            this.rusLanguageLabel = InterfaceResources.Label_Language_Rus;
-            this.ukrLanguageLabel = InterfaceResources.Label_Language_Ukr;
+            this.SetLocalizedLabels();
         }
 
         private string engLanguageLabel;
@@ -55,6 +53,11 @@ namespace FastNotes
         public void HandleLanguageChangeEvent(string language)
         {
             InterfaceResources.Culture = new System.Globalization.CultureInfo(language);
+            this.SetLocalizedLabels();
+        }
+
+        private void SetLocalizedLabels()
+        {
             this.EngLanguageLabel = InterfaceResources.Label_Language_Eng;
             this.RusLanguageLabel = InterfaceResources.Label_Language_Rus;
             this.UkrLanguageLabel = InterfaceResources.Label_Language_Ukr;

@@ -63,7 +63,6 @@ namespace FastNotes.Resources
 			{
 				if (resourceCulture == null)
 				{
-					// Later it can be replaced with remembered culture in settings.
 					resourceCulture = Thread.CurrentThread.CurrentCulture;
 				}
 				return resourceCulture;

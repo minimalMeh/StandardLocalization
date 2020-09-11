@@ -35,7 +35,6 @@ namespace FastNotes.Resources
 			{
 				if (resourceCulture == null)
 				{
-					// Later it can be replaced with remembered culture in settings.
 					resourceCulture = Thread.CurrentThread.CurrentCulture;
 				}
 				return resourceCulture;
@@ -46,13 +45,6 @@ namespace FastNotes.Resources
 			}
 		}
 
-		public static string Test
-		{
-			get
-			{
-				return ResourceManager.GetString("Test", Culture);
-			}
-		}
 		public static string Label_Language_Eng
 		{
 			get
@@ -72,13 +64,6 @@ namespace FastNotes.Resources
 			get
 			{
 				return ResourceManager.GetString("Label_Language_Ukr", Culture);
-			}
-		}
-		public static string Text_Intro
-		{
-			get
-			{
-				return ResourceManager.GetString("Text_Intro", Culture);
 			}
 		}
 	}
